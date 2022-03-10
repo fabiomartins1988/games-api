@@ -3,5 +3,5 @@ export interface IGame {
   plataform: string;
   multiplayer: boolean;
   price: number;
-};
+}
 

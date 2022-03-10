@@ -1,4 +1,4 @@
-import { IGame } from "../games/game.interface";
+import { IGame } from "./interface/game.interface";
 
 class GameRepository {
 
