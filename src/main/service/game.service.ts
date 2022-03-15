@@ -6,7 +6,7 @@ import { IGame } from "../infrastructure/repository/interface/game.interface";
 // Update,
 // Delete.
  
-export class UserService {
+export class GameService {
 
     public async teste() {
         
