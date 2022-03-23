@@ -1,19 +1,8 @@
-import { IGame } from '../games/game.interface';
-import { GameService } from '../games/game.service';
+import { gamesController } from '../controller/games.controller';
 import { Router } from 'express';
 
 const router = Router();
 
-router.get("/games", (resquest, response) => {
-
-  response.status(200).json({'hello': 'world'});
-});
-
-router.post("/games", (resquest, response) => {
-
-  response.status(201).send();
-});
-
-
+router.get("/games", gamesController.getGames);
 
 export = router;
