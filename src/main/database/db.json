@@ -1,16 +1,32 @@
 {
   "games": [
     {
+      "id": 0,
       "name": "Super Mario World",
       "plataform": "SNES",
       "multiplayer": false,
-      "price": 60.00
+      "price": 60
     },
     {
+      "id": 1,
       "name": "Sonic 2",
       "plataform": "MegaDrive",
       "multiplayer": false,
-      "price": 60.00
+      "price": 60
+    },
+    {
+      "id": 2,
+      "name": "Dota 2",
+      "plataform": "PC",
+      "multiplayer": true,
+      "price": 0
+    },
+    {
+      "id": 3,
+      "name": "Black",
+      "plataform": "PS2, Xbox 360",
+      "multiplayer": true,
+      "price": 100
     }
   ]
 }
