@@ -57,7 +57,6 @@ export class Game {
 
   toJSON() {
     return {
-      id: this.id,
       ...this.gameProps,
     };
   }

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { CreateGame} from "../../usecases/createGame";
-import {GameInJsonFileRepository} from "../database/gameInJsonFileRepository";
+import { CreateGame } from "../../usecases/createGame";
+import { GameInJsonFileRepository } from "../database/gameInJsonFileRepository";
 
 const gameInJsonFileRepository = new GameInJsonFileRepository();
 
@@ -12,4 +12,4 @@ class GamesResource {
     }
 }
 
-export const gamesResource = new GamesResource()
+export const gamesResource = new GamesResource();
