@@ -19,6 +19,9 @@ type CreateGameRequest = {
   platform: string;
   multiplayer: boolean;
   price: number;
+  launchDate: string;
+  genre: string;
+  developer: string;
 }
 
 type CreateGameResponse = {
@@ -27,4 +30,7 @@ type CreateGameResponse = {
   platform: string;
   multiplayer: boolean;
   price: number;
+  launchDate: string;
+  genre: string;
+  developer: string;
 }

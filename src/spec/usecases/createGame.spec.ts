@@ -17,7 +17,12 @@ type CreateGameRequestMock = {
     platform: string;
     multiplayer: boolean;
     price: number;
+    launchDate: string;
+    genre: string;
+    developer: string;
 };
+
+let createGameMock = new CreateGame(gameRepository);
 
 describe("Given CreateGame usecase", () => {
     beforeEach(() => {
@@ -30,10 +35,12 @@ describe("Given CreateGame usecase", () => {
             name: 'sample',
             platform: 'sample',
             multiplayer: false,
-            price: 0
+            price: 0,
+            launchDate: 'sample',
+            genre: 'sample',
+            developer: 'sample',
         };
-
-        let createGameMock = new CreateGame(gameRepository);
+        
         let inputMock : CreateGameRequestMock = gameSample;
 
         beforeEach(() => {

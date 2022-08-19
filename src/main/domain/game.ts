@@ -4,6 +4,9 @@ export type GameProps = {
   platform: string;
   multiplayer: boolean;
   price: number;
+  launchDate: string;
+  genre: string;
+  developer: string;
 }
 
 export class Game {
@@ -53,6 +56,30 @@ export class Game {
 
   set price(value: number) {
     this.gameProps.price = value;
+  }
+
+  get launchDate(): string {
+    return this.gameProps.launchDate;
+  }
+
+  set launchDate(value: string) {
+    this.gameProps.launchDate = value;
+  }
+
+  get genre(): string {
+    return this.gameProps.genre;
+  }
+
+  set genre(value: string) {
+    this.gameProps.genre = value;
+  }
+
+  get developer(): string {
+    return this.gameProps.developer;
+  }
+
+  set developer(value: string) {
+    this.gameProps.developer = value;
   }
 
   toJSON() {

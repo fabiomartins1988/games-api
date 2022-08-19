@@ -24,13 +24,14 @@ let req = {
     body: 'body',
 } as any as Request;
 
+let jsonRepositoryMock = new GameInJsonFileRepository();
+
 describe("Given gamesResource", () => {
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     describe("When createGame is called", () => {
-        let jsonRepositoryMock = new GameInJsonFileRepository();
         let createGameMock = new CreateGame(jsonRepositoryMock);
 
         beforeEach(async () => {
