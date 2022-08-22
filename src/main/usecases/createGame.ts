@@ -20,8 +20,9 @@ type CreateGameRequest = {
   multiplayer: boolean;
   price: number;
   launchDate: string;
-  genre: string;
+  genre: string[];
   developer: string;
+  imageUrl: string;
 }
 
 type CreateGameResponse = {
@@ -31,6 +32,7 @@ type CreateGameResponse = {
   multiplayer: boolean;
   price: number;
   launchDate: string;
-  genre: string;
+  genre: string[];
   developer: string;
+  imageUrl: string;
 }

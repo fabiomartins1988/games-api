@@ -18,8 +18,9 @@ type CreateGameRequestMock = {
     multiplayer: boolean;
     price: number;
     launchDate: string;
-    genre: string;
+    genre: string[];
     developer: string;
+    imageUrl: string;
 };
 
 let createGameMock = new CreateGame(gameRepository);
@@ -37,8 +38,9 @@ describe("Given CreateGame usecase", () => {
             multiplayer: false,
             price: 0,
             launchDate: 'sample',
-            genre: 'sample',
+            genre: ['sample'],
             developer: 'sample',
+            imageUrl: 'sample',
         };
         
         let inputMock : CreateGameRequestMock = gameSample;
