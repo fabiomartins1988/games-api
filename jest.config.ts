@@ -5,5 +5,16 @@ const config: Config.InitialOptions = {
   testEnvironment: "node",
   verbose: true,
   automock: true,
+  collectCoverage: true,
+  coverageDirectory: './coverage',
+  coverageReporters: ['text', 'clover', 'lcov'],
+  collectCoverageFrom: [
+    '**/*.{js,ts}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+    '!**/coverage/**',
+    '!**/domain/*.ts',
+    '!./*.ts',
+  ],
 }
 export default config
