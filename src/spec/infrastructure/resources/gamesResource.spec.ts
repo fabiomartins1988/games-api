@@ -1,10 +1,12 @@
 import { CreateGame } from "../../../main/usecases/createGame";
+import { GetGameById } from "../../../main/usecases/getGameById";
 import { GameInJsonFileRepository } from "../../../main/infrastructure/database/gameInJsonFileRepository";
 import { Request, Response } from 'express';
 
 import type * as GamesResource from "../../../main/infrastructure/resources/gamesResource"
 const { gamesResource } = jest.requireActual<typeof GamesResource>("../../../main/infrastructure/resources/gamesResource")
 
+jest.mock('../../../main/usecases/getGameById');
 jest.mock('../../../main/usecases/createGame');
 jest.mock('../../../main/infrastructure/database/gameInJsonFileRepository');
 let spyMock = jest.fn();
@@ -12,9 +14,19 @@ let statusMock = {
     json: jest.fn(),
 };
 
-(CreateGame as any).mockImplementation(() => {
-    return { execute: spyMock };
-})
+(GetGameById as any).mockReturnValue({ 
+    execute: spyMock,
+    getInstance: spyMock,
+});
+
+(GetGameById as any).getInstance.mockReturnValue({ 
+    execute: spyMock.mockResolvedValue({status: 200}),
+    getInstance: spyMock,
+});
+
+(CreateGame as any).mockReturnValue({
+    execute: spyMock
+});
 
 let res = {
     status: jest.fn().mockReturnValue(statusMock)
@@ -49,7 +61,29 @@ describe("Given gamesResource", () => {
         test("Then res status is 201", () => {
             expect(res.status).toHaveBeenCalledWith(201);
         });
-      })
+    })
+
+    describe("When getGameById is called", () => {
+        req.params = {
+            id: '123',
+        };
+
+        beforeEach(async () => {
+            await gamesResource.getGameById(req, res);
+        });
+
+        test("Then GetGameById is called", () => {
+            //expect(GetGameById).toHaveBeenCalled();
+        });
+
+        test("Then getGameById.execute is called with req.params.id", () => {
+            //expect().toHaveBeenCalledWith('123');
+        });
+
+        test("Then res status is 200", () => {
+            expect(res.status).toHaveBeenCalledWith(200);
+        });
+    })
 })
 
 export {};
