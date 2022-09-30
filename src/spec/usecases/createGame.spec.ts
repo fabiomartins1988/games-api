@@ -9,6 +9,7 @@ jest.mock('../../main/domain/game');
 
 let gameRepository : GameRepository = {
     save: jest.fn().mockReturnValueOnce(''),
+    getById: jest.fn().mockReturnValueOnce(''),
 };
 
 type CreateGameRequestMock = {
@@ -23,11 +24,13 @@ type CreateGameRequestMock = {
     imageUrl: string;
 };
 
-let createGameMock = new CreateGame(gameRepository);
 
 describe("Given CreateGame usecase", () => {
+    let createGameMock : createGameUsecase.CreateGame;
+
     beforeEach(() => {
         jest.clearAllMocks();
+        createGameMock = new CreateGame(gameRepository);
     });
 
     describe("When execute is called", () => {

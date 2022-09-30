@@ -1,5 +1,4 @@
 import { GameRepository } from "../infrastructure/repositories/gameRepository";
-import * as db from  "../database/db.json";
 import { Game } from "../domain/game";
 
 export class CreateGame {
