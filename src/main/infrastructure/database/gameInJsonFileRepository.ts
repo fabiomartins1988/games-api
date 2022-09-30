@@ -14,5 +14,16 @@ export class GameInJsonFileRepository implements GameRepository {
             }
         })
         return Promise.resolve(undefined);
-    }
+    };
+
+    public getById(id: Number): Promise<Game> {
+        let result = getArrayObjectById(id);
+        if (result === undefined) 
+            return Promise.reject('Game not found');
+        return Promise.resolve(new Game(result));
+    };
+}
+
+function getArrayObjectById(id: Number) {
+    return db.games.find(game => game.id === id);
 }
