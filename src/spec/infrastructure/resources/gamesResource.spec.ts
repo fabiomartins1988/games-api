@@ -15,13 +15,12 @@ let statusMock = {
 };
 
 (GetGameById as any).mockReturnValue({ 
-    execute: spyMock,
+    execute: spyMock.mockResolvedValue({status: 200}),
     getInstance: spyMock,
 });
 
 (GetGameById as any).getInstance.mockReturnValue({ 
     execute: spyMock.mockResolvedValue({status: 200}),
-    getInstance: spyMock,
 });
 
 (CreateGame as any).mockReturnValue({
@@ -72,12 +71,12 @@ describe("Given gamesResource", () => {
             await gamesResource.getGameById(req, res);
         });
 
-        test("Then GetGameById is called", () => {
-            //expect(GetGameById).toHaveBeenCalled();
+        test("Then GetGameById.getInstance is called with Repository", () => {
+            expect(GetGameById.getInstance)
+                .toHaveBeenCalledWith(expect.any(GameInJsonFileRepository));
         });
 
         test("Then getGameById.execute is called with req.params.id", () => {
-            //expect().toHaveBeenCalledWith('123');
         });
 
         test("Then res status is 200", () => {
