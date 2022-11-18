@@ -8,6 +8,6 @@ app.listen(port, () => {
   console.log(`Games API is running on port ${port}.`);
 });
 
-app.use(router)
+app.use(router);
 
 export default app;

@@ -4,8 +4,8 @@ import express, { Router } from 'express';
 const router = Router();
 router.use(express.json());
 
-router.post("/game", gamesResource.createGame);
+router.post("/api/game", gamesResource.createGame);
 
-router.get("/game/:id", gamesResource.getGameById);
+router.get("/api/game/:id", gamesResource.getGameById);
 
 export = router;
